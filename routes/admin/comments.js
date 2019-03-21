@@ -10,17 +10,17 @@ router.all('/*', (req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-  /* Comment.find({user: req.user.id})
-  .populate('user')
-  .then(comments => {
-    res.render('admin/comments', { comments });
-  }); */
-
-  Comment.find({user: '5c8fabf70bbc560798709c91'})
+  Comment.find({user: req.user.id})
   .populate('user')
   .then(comments => {
     res.render('admin/comments', { comments });
   });
+
+  /* Comment.find({user: '5c8fabf70bbc560798709c91'})
+  .populate('user')
+  .then(comments => {
+    res.render('admin/comments', { comments });
+  }); */
 });
 
 router.post('/', (req, res) => {
