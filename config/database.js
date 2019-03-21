@@ -1,3 +1,5 @@
-module.exports = {
-  mongoDbUrl: 'mongodb://localhost:27017/EdwinNodeCMS',
-};
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./prod-database');
+} else {
+  module.exports = require('./dev-database');
+}
