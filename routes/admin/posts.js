@@ -7,7 +7,7 @@ const fs = require('fs');
 const { userAuthenticated } = require('../../helpers/authentication');
 
 // for all routes of "admin/posts/*** */"
-router.all('/*', (req, res, next) => {
+router.all('/*', userAuthenticated, (req, res, next) => {
   // set the default layout for admin/posts routes
   req.app.locals.layout = 'admin';
   next();

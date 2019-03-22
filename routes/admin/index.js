@@ -8,7 +8,7 @@ const { Category } = require('../../models/Category');
 const { User } = require('../../models/User');
 
 // for all routes of "admin/*** */"
-router.all('/*', (req, res, next) => {
+router.all('/*', userAuthenticated, (req, res, next) => {
   // set the default layout for admin routes
   req.app.locals.layout = 'admin';
   next();
